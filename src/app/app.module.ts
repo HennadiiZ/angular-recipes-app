@@ -47,3 +47,4 @@ export class AppModule { }
 // 49. Creating the Components
 
 // 50. Using the Components
+// 51. Adding a Navigation Bar
