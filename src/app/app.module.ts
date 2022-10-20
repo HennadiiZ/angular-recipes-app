@@ -49,3 +49,5 @@ export class AppModule { }
 // 50. Using the Components
 // 51. Adding a Navigation Bar
 // 52. Alternative Non-Collapsable Navigation Bar
+
+// 53. Creating a "Recipe" Model
