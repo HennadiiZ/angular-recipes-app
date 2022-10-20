@@ -45,3 +45,5 @@ export class AppModule { }
   // npm install --save bootstrap@3
 
 // 49. Creating the Components
+
+// 50. Using the Components
