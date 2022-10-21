@@ -53,3 +53,4 @@ export class AppModule { }
 // 53. Creating a "Recipe" Model
 
 // 54. Adding Content to the Recipes Components
+// 54. My solution
