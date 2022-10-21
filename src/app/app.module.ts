@@ -62,3 +62,5 @@ export class AppModule { }
 // 58. Creating an "Ingredient" Model (shortcut)
 
 // 59. Creating and Outputting the Shopping List
+// 60. Adding a Shopping List Edit Section
+// 61. Wrap Up & Next Steps
