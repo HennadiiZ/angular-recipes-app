@@ -60,3 +60,5 @@ export class AppModule { }
 
 // 57. Working on the ShoppingListComponent
 // 58. Creating an "Ingredient" Model (shortcut)
+
+// 59. Creating and Outputting the Shopping List
