@@ -57,3 +57,6 @@ export class AppModule { }
 
 // 55. Outputting a List of Recipes with ngFor
 // 56. Displaying Recipe Details
+
+// 57. Working on the ShoppingListComponent
+// 58. Creating an "Ingredient" Model (shortcut)
