@@ -54,3 +54,6 @@ export class AppModule { }
 
 // 54. Adding Content to the Recipes Components
 // 54. My solution
+
+// 55. Outputting a List of Recipes with ngFor
+// 56. Displaying Recipe Details
