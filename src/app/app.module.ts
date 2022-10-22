@@ -67,3 +67,5 @@ export class AppModule { }
 
 // 85. Introduction
 // 86. Adding Navigation with Event Binding and ngIf
+
+// 87. Passing Recipe Data with Property Binding

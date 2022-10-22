@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Recipe } from '../../_models/recipe.model'
 @Component({
   selector: 'app-recipe-list',
@@ -14,8 +14,8 @@ export class RecipeListComponent implements OnInit {
       'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg',
     ),
     new Recipe(
-      'A test Recipe',
-      'test',
+      '2 test Recipe',
+      '2 test',
       'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg',
     )
   ];
