@@ -1,4 +1,9 @@
-<a href="#" class="list-group-item clearfix"  style="background: rgb(243, 247, 189); margin-bottom: 10px;">
+<a
+  href="#"
+  class="list-group-item clearfix"
+  style="background: rgb(243, 247, 189); margin-bottom: 10px;"
+  (click)="chosenRecipeItem()"
+>
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
     <p class="list-group-item-text">{{ recipe.description }}</p>
