@@ -11,6 +11,7 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { DropdownDirective } from './_directives/dropdown.directive';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     RecipeDetailComponent,
     RecipeItemComponent,
     ShoppingListComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
@@ -75,3 +77,6 @@ export class AppModule { }
 
 // 88. Passing Data with Event and Property Binding (Combined)
 // 90. Allowing the User to Add Ingredients to the Shopping List
+
+
+// 103. Building and Using a Dropdown Directive

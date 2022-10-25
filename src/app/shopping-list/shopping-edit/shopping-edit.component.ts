@@ -10,7 +10,7 @@ export class ShoppingEditComponent implements OnInit {
 
   @ViewChild('nameInput') nameInput: ElementRef;
   @ViewChild('amountInput') amountInput: ElementRef;
-  @Output() onAdd = new EventEmitter();
+  @Output() onAdd = new EventEmitter<Ingredient>();
 
   constructor() {}
 
