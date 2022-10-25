@@ -80,3 +80,5 @@ export class AppModule { }
 
 
 // 103. Building and Using a Dropdown Directive
+
+// 104. Closing the Dropdown From Anywhere
