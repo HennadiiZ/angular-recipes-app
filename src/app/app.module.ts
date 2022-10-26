@@ -89,3 +89,6 @@ export class AppModule { }
 // 118. Managing Recipes in a Recipe Service (2)
 // 118. Managing Recipes in a Recipe Service (3)
 // 118. Managing Recipes in a Recipe Service (4)
+
+// 119. Using a Service for Cross-Component Communication
+
