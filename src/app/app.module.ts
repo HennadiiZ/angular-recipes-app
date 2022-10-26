@@ -96,3 +96,5 @@ export class AppModule { }
 // 121. Using Services for Pushing Data from A to B
 
 // 122. Adding Ingredients to Recipes
+
+// 123. Passing Ingredients from Recipes to the Shopping List (via a Service)
