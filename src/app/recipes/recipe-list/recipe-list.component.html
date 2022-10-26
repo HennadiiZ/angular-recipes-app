@@ -17,7 +17,7 @@
     </a> -->
 
     <app-recipe-item
-    *ngFor="let recipe of recipeService.getRecipes()"
+    *ngFor="let recipe of recipes"
     [recipe]="recipe"
     (recipeSelected)="onRecipeSelected(recipe)"
     ></app-recipe-item>
