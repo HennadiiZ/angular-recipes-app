@@ -6,7 +6,7 @@ import { Recipe } from '../_models/recipe.model';
 })
 export class RecipeService {
 
-  recipes: Recipe[] = [
+  private recipes: Recipe[] = [
     new Recipe(
       'A test Recipe',
       'test',
@@ -19,6 +19,9 @@ export class RecipeService {
     )
   ];
 
+  constructor() {}
 
-  constructor() { }
+  getRecipes(): Recipe[] {
+    return this.recipes;
+  }
 }
