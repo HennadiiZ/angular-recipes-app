@@ -82,3 +82,7 @@ export class AppModule { }
 // 103. Building and Using a Dropdown Directive
 
 // 104. Closing the Dropdown From Anywhere
+
+// SERVICES
+// 117. Setting up the Services
+// 118. Managing Recipes in a Recipe Service
