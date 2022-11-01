@@ -98,3 +98,11 @@ export class AppModule { }
 // 122. Adding Ingredients to Recipes
 
 // 123. Passing Ingredients from Recipes to the Shopping List (via a Service)
+
+// ROUTING
+// 155. Planning the General Structure
+// 156. Setting Up Routes
+// 157. Adding Navigation to the App
+// 158. Marking Active Routes
+// 159. Fixing Page Reload Issues
+// 160. Child Routes: Challenge
