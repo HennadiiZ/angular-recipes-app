@@ -119,3 +119,5 @@ export class AppModule { }
 // 164. Styling Active Recipe Items
 
 // 165. Adding Editing Routes
+
+// 166. Retrieving Route Parameters
