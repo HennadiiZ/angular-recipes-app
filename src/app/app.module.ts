@@ -110,3 +110,4 @@ export class AppModule { }
 // 160. Child Routes: Challenge
 
 // 161. Adding Child Routing Together
+// 162. Configuring Route Parameters

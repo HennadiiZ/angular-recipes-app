@@ -39,4 +39,10 @@ export class RecipeService {
   addIngredientToShoppingList(ingredients: Ingredient[]): void {
     this.shoppingListService.addIngredients(ingredients);
   }
+
+  getRecipe(index: number):Recipe {
+    console.log(index);
+    console.log(this.recipes[index]);
+    return this.recipes[index];
+  }
 }

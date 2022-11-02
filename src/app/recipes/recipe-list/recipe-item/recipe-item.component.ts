@@ -14,16 +14,15 @@ export class RecipeItemComponent implements OnInit {
   // @Output() recipeSelected = new EventEmitter<void>()
 
   constructor(
-    private recipeService: RecipeService,
     private router: Router,
     private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {}
 
-  onSelected(name: string): void {
-    // this.recipeSelected.emit();
-    // this.recipeService.recipeSelected.emit(this.recipe);
-    this.router.navigate(['recipe',]);
-  }
+  // onSelected(name: string): void {
+  //   // this.recipeSelected.emit();
+  //   // this.recipeService.recipeSelected.emit(this.recipe);
+  //   // console.log('recipe selected', this.route.snapshot)
+  // }
 }
