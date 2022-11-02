@@ -123,3 +123,5 @@ export class AppModule { }
 // 166. Retrieving Route Parameters
 
 // 167. Programmatic Navigation to the Edit Page
+
+// 169. Project Cleanup
