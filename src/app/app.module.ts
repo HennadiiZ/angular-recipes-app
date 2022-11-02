@@ -111,3 +111,5 @@ export class AppModule { }
 
 // 161. Adding Child Routing Together
 // 162. Configuring Route Parameters
+
+// 163. Passing Dynamic Parameters to Links

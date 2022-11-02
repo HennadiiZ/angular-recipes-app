@@ -12,10 +12,12 @@ export class RecipeItemComponent implements OnInit {
 
   @Input() recipe: Recipe;
   // @Output() recipeSelected = new EventEmitter<void>()
+  @Input() index: number;
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
+    // private router: Router,
+    // private route: ActivatedRoute,
+    // private recipeService: RecipeService
   ) {}
 
   ngOnInit(): void {}
