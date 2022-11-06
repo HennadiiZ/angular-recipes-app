@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  toggle = false;
+  // toggle = false;
 
-  toggler(event: boolean): void {
-    this.toggle = event;
-  }
+  // toggler(event: boolean): void {
+  //   this.toggle = event;
+  // }
 }
