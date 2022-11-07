@@ -140,3 +140,7 @@ export class AppModule { }
 // 222. Loading the Shopping List Items into the Form
 
 // 223. Updating existing Items
+
+// 224. Resetting the Form
+// 225. Allowing the the User to Clear (Cancel) the Form
+// 226. Allowing the Deletion of Shopping List Items
