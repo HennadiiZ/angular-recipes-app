@@ -1,5 +1,6 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { Ingredient } from 'src/app/_models/ingredient.model';
 import { ShoppingListService } from 'src/app/_services/shopping-list.service';
 
@@ -8,15 +9,24 @@ import { ShoppingListService } from 'src/app/_services/shopping-list.service';
   templateUrl: './shopping-edit.component.html',
   styleUrls: ['./shopping-edit.component.scss']
 })
-export class ShoppingEditComponent implements OnInit {
+export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   // @ViewChild('nameInput') nameInput: ElementRef;
   // @ViewChild('amountInput') amountInput: ElementRef;
   // @Output() onAdd = new EventEmitter<Ingredient>();
+  subscription = new Subscription;
+  editMode = false;
+  editedItemIndex: number;
 
   constructor(private shoppingListService: ShoppingListService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.subscription = this.shoppingListService.startedEditing.subscribe((id: number) => {
+      console.log('id', id);
+      this.editedItemIndex = id;
+      this.editMode = true;
+    });
+  }
 
   onAddItem(form: NgForm): void {
     // this.onAdd.emit({nameInput: this.nameInput.nativeElement.value, amountInput: this.amountInput.nativeElement.value});
@@ -27,10 +37,17 @@ export class ShoppingEditComponent implements OnInit {
 
     // this.shoppingListService.addIngredient(new Ingredient(this.nameInput.nativeElement.value, this.amountInput.nativeElement.value))
 
-    if ( form.value.name && form.value.amount) {
-      this.shoppingListService.addIngredient(new Ingredient(form.value.name, form.value.amount));
-      form.value.name = '';
-      form.value.amount = '';
-    }
+    // if ( form.value.name && form.value.amount) {
+    //   this.shoppingListService.addIngredient(new Ingredient(form.value.name, form.value.amount));
+    //   form.value.name = '';
+    //   form.value.amount = '';
+    // }
+
+
+    this.shoppingListService.addIngredient(new Ingredient(form.value.name, form.value.amount));
+  }
+
+  ngOnDestroy():void {
+    this.subscription.unsubscribe();
   }
 }

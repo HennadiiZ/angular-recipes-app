@@ -134,4 +134,5 @@ export class AppModule { }
 // FORMS
 // 219. TD: Adding the Shopping List Form
 
-// 219. TD: Adding the Shopping List Form
+// 220. Adding Validation to the Form
+// 221. Allowing the Selection of Items in the List
