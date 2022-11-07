@@ -136,3 +136,5 @@ export class AppModule { }
 
 // 220. Adding Validation to the Form
 // 221. Allowing the Selection of Items in the List
+
+// 222. Loading the Shopping List Items into the Form
