@@ -151,3 +151,6 @@ export class AppModule { }
 // 228. Creating the Form For Editing Recipes
 
 // 229. Syncing HTML with the Form
+
+// 230. Fixing a Bug
+// 231. Adding Ingredient Controls to a Form Array
