@@ -14,6 +14,7 @@
             placeholder="Name"
             name="name"
             ngModel
+            required
           >
 
         </div>
@@ -23,12 +24,14 @@
           <!-- <input #amountInput type="text" id="amount" class="form-control" placeholder="Amount"> -->
 
           <input
-            type="text"
+            type="number"
             id="amount"
             class="form-control"
             placeholder="Amount"
             name="amount"
             ngModel
+            required
+            pattern="^[1-9]+[0-9]*$"
           >
 
         </div>
@@ -36,7 +39,7 @@
       <div class="row">
         <div class="col-sx-12">
           <!-- <button class="btn btn-success" (click)="onAddItem()" type="submit" style="margin-left: 15px">Add</button> -->
-          <button class="btn btn-success" type="submit" style="margin-left: 15px">Add</button>
+          <button class="btn btn-success" type="submit" style="margin-left: 15px" [disabled]="!f.valid">Add</button>
           <button class="btn btn-danger" type="button" style="margin-left: 15px">Delete</button>
           <button class="btn btn-primary" type="button" style="margin-left: 15px">Clear</button>
         </div>
