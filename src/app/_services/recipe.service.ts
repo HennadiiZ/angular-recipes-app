@@ -10,6 +10,7 @@ import { ShoppingListService } from './shopping-list.service';
 export class RecipeService {
   // recipeSelected = new EventEmitter<Recipe>();
   recipeSelected = new Subject<Recipe>();
+  recipeChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -42,9 +43,19 @@ export class RecipeService {
     this.shoppingListService.addIngredients(ingredients);
   }
 
-  getRecipe(index: number):Recipe {
+  getRecipe(index: number): Recipe {
     // console.log(index);
     // console.log(this.recipes[index]);
     return this.recipes[index];
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipeChanged.next(this.recipes);
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.recipeChanged.next(this.recipes);
   }
 }
