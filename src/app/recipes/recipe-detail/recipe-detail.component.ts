@@ -32,13 +32,6 @@ export class RecipeDetailComponent implements OnInit {
         this.recipe = this.recipeService.getRecipe(this.id);
       }
     )
-
-    // this.recipeService.recipeChanged.subscribe(
-    //   (recipe) => {
-    //     console.log(recipe);
-    //     // this.recipe = recipe;
-    //   }
-    // )
   }
 
   ToShoppingList(): void{

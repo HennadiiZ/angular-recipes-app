@@ -77,16 +77,15 @@ export class RecipeEditComponent implements OnInit {
     if(this.editMode) {
       // this.recipeService.updateRecipe(this.id, newRecipe);
       this.recipeService.updateRecipe(this.id,  this.recipeForm.value);
-      this.router.navigate([''], {relativeTo: this.route});
       // console.log("updateRecipe", this.id,  this.recipeForm.value);
       // console.log(this.recipeService.getRecipes());
     } else {
       // this.recipeService.addRecipe(newRecipe);
       this.recipeService.addRecipe(this.recipeForm.value);
-      this.router.navigate([''], {relativeTo: this.route});
       // console.log("addRecip", this.recipeForm.value);
       // console.log(this.recipeService.getRecipes());
     }
+    this.onCancel();
   }
 
   get controls() { // a getter!

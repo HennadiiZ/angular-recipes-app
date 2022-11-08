@@ -162,3 +162,6 @@ export class AppModule { }
 // 234. Submitting the Recipe Edit Form
 
 // 235. Adding a Delete and Clear (Cancel) Functionality
+
+// 236. Redirecting the User (after Deleting a Recipe)
+// 237. Adding an Image Preview
