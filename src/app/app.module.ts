@@ -160,3 +160,5 @@ export class AppModule { }
 // 233. Validating User Input
 
 // 234. Submitting the Recipe Edit Form
+
+// 235. Adding a Delete and Clear (Cancel) Functionality
