@@ -154,3 +154,7 @@ export class AppModule { }
 
 // 230. Fixing a Bug
 // 231. Adding Ingredient Controls to a Form Array
+
+// 232. Adding new Ingredient Controls
+
+// 
