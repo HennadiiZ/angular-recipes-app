@@ -165,3 +165,6 @@ export class AppModule { }
 
 // 236. Redirecting the User (after Deleting a Recipe)
 // 237. Adding an Image Preview
+
+// 238. Providing the Recipe Service
+// 239. Deleting Ingredients and Some Finishing Touches
