@@ -12,31 +12,37 @@ export class RecipeService {
   recipeSelected = new Subject<Recipe>();
   recipeChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'Shrimps',
-      'Shrimps dish',
-      'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg',
-      [
-        new Ingredient('Shrimps', 5),
-        new Ingredient('Greens', 5),
-      ]
-    ),
-    new Recipe(
-      'Donunts',
-      'sweet',
-      'https://www.publicdomainpictures.net/pictures/270000/velka/donuts-15367481797jY.jpg',
-      [
-        new Ingredient('Shugar', 3),
-        new Ingredient('dough', 1),
-      ]
-    )
-  ];
+  private recipes: Recipe[] = [];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'Shrimps',
+  //     'Shrimps dish',
+  //     'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg',
+  //     [
+  //       new Ingredient('Shrimps', 5),
+  //       new Ingredient('Greens', 5),
+  //     ]
+  //   ),
+  //   new Recipe(
+  //     'Donunts',
+  //     'sweet',
+  //     'https://www.publicdomainpictures.net/pictures/270000/velka/donuts-15367481797jY.jpg',
+  //     [
+  //       new Ingredient('Shugar', 3),
+  //       new Ingredient('dough', 1),
+  //     ]
+  //   )
+  // ];
 
   constructor(private shoppingListService: ShoppingListService) {}
 
   getRecipes(): Recipe[] {
     return this.recipes.slice();
+  }
+
+  setRecipes(recipes: Recipe[]):void {
+    this.recipes = recipes;
+    this.recipeChanged.next(this.recipes.slice());
   }
 
   addIngredientToShoppingList(ingredients: Ingredient[]): void {

@@ -173,3 +173,7 @@ export class AppModule { }
 //--------------------- HTTP
 // 278. Module Introduction
 // 279. Backend (Firebase) Setup
+
+// ...
+
+// 283. Transforming Response Data

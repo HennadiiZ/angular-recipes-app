@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private httpService: HttpService,
-    private recipeService: RecipeService
+    // private recipeService: RecipeService
   ) {}
 
   ngOnInit(): void {}
@@ -32,19 +32,15 @@ export class HeaderComponent implements OnInit {
   // }
 
   saveData(): void {
-    const recipes = this.recipeService.getRecipes();
-    this.httpService.saveRecipes(recipes).subscribe(
-      ((data: Recipe)=> {
+    // const recipes = this.recipeService.getRecipes();
+    this.httpService.saveRecipes().subscribe(
+      ((data: Recipe[])=> {
         console.log(data);
       })
     );
   }
 
   fetchData(): void {
-    this.httpService.fetchRecipes().subscribe(
-      ((data: Recipe)=> {
-        console.log(data);
-      })
-    );
+    this.httpService.fetchRecipes();
   }
 }
