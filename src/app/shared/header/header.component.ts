@@ -41,6 +41,6 @@ export class HeaderComponent implements OnInit {
   }
 
   fetchData(): void {
-    this.httpService.fetchRecipes();
+    this.httpService.fetchRecipes().subscribe();
   }
 }

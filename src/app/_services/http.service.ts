@@ -23,19 +23,22 @@ export class HttpService {
     return this.http.put<Recipe[]>(`${this.LINK}${this.endpoint}`, recipes);
   }
 
-  fetchRecipes(): void {
+  fetchRecipes(): Observable<Recipe[]> {
     // return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`);
 
-    this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`)
+    return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`)
     .pipe(
       map((recipes)=> {
         return recipes.map(recipe => {
           return { ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []};
         })
+      }),
+      tap((recipes)=> {
+        this.recipeService.setRecipes(recipes);
       })
     )
-    .subscribe((recipes) => {
-      this.recipeService.setRecipes(recipes);
-    });
+    // .subscribe((recipes) => {
+    //   // this.recipeService.setRecipes(recipes);
+    // });
   }
 }
