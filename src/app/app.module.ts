@@ -179,3 +179,5 @@ export class AppModule { }
 // 283. Transforming Response Data
 
 // 284. Resolving Data Before Loading
+
+// 285. Fixing a Bug with the Resolver
