@@ -15,6 +15,7 @@ import { DropdownDirective } from './_directives/dropdown.directive';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './auth/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     ShoppingEditComponent,
     DropdownDirective,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -181,3 +183,9 @@ export class AppModule { }
 // 284. Resolving Data Before Loading
 
 // 285. Fixing a Bug with the Resolver
+
+
+//---------------------
+// Section 20: Authentication & Route Protection in Angular -------------------
+//---------------------
+// 288. Adding the Auth Page
