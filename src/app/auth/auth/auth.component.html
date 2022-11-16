@@ -10,8 +10,12 @@
         <input type="password" id="password" class="form-control">
       </div>
       <div>
-        <button class="btn btn-primary" style="margin-right: 10px;">Sign Up</button>
-        <button class="btn btn-primary">Switch to Login</button>
+        <!-- <button class="btn btn-primary" style="margin-right: 10px;" *ngIf="isLoginMode"> Sign Up </button>
+        <button class="btn btn-primary" style="margin-right: 10px;" *ngIf="!isLoginMode"> Sign Off </button> -->
+
+        <button class="btn btn-primary" style="margin-right: 10px;" type="submit">{{ isLoginMode ? 'Sign Up' : 'Sign in' }}</button>
+        <button class="btn btn-primary" (click)="onSwitchMode()">{{ !isLoginMode ? 'Switch to Sign Up' : 'Switch to Sign in' }}</button>
+
       </div>
     </form>
   </div>

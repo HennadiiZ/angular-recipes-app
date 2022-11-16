@@ -189,3 +189,5 @@ export class AppModule { }
 // Section 20: Authentication & Route Protection in Angular -------------------
 //---------------------
 // 288. Adding the Auth Page
+
+// 289. Switching Between Auth Modes
