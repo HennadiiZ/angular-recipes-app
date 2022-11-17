@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { AuthResponseData } from '../_interfaces/auth-response-data.interface';
 
 @Injectable({
@@ -19,6 +19,11 @@ export class AuthService {
     return this.http.post<AuthResponseData>(
       `${this.SIGN_UP}${this.API_KEY}`,
       { email, password, returnSecureToken: true }
+    )
+    .pipe(
+      // catchError((error)=> {
+      //   // not finished...
+      // })
     );
   }
 

@@ -201,5 +201,5 @@ export class AppModule { }
 // 293. Preparing the Signup Request
 // 294. Sending the Signup Request
 // 295. Adding a Loading Spinner & Error Handling Logic
-//
+// 296. Improving Error Handling
 // 297. Sending Login Requests
