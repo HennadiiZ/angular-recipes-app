@@ -16,6 +16,7 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './auth/auth/auth.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthComponent } from './auth/auth/auth.component';
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
-    AuthComponent
+    AuthComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -193,3 +195,11 @@ export class AppModule { }
 // 289. Switching Between Auth Modes
 
 // 290. Handling Form Input
+
+// 291. Preparing the Backend
+
+// 293. Preparing the Signup Request
+// 294. Sending the Signup Request
+// 295. Adding a Loading Spinner & Error Handling Logic
+//
+// 297. Sending Login Requests

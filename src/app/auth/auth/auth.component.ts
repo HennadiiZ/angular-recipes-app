@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -8,20 +10,63 @@ import { NgForm } from '@angular/forms';
 })
 export class AuthComponent implements OnInit {
   isLoginMode = true;
+  loader = false;
+  errorMessage: string = null;
 
-  constructor() {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
   onSwitchMode(): void {
     this.isLoginMode = !this.isLoginMode;
-    console.log(this.isLoginMode);
   }
 
   onSubmit(authForm: NgForm): void {
-    console.log(authForm);
-    console.log(authForm.value);
+    if (!authForm.valid) {
+      return;
+    }
+
+    this.loader = true;
+    const form = authForm.value;
+
+    if (this.isLoginMode) {
+      this.authService.signUp(form.email, form.password)
+      .subscribe(
+        (value: any) => {
+          // console.log(value);
+          this.loader = false;
+          this.router.navigate(['']);
+        },
+        error => {
+          console.log(error.error.error.message);
+          this.errorMessage = error.error.error.message;
+          this.loader = false;
+        }
+      );
+    } else {
+      this.authService.signIn(form.email, form.password)
+      .subscribe(
+        (value: any) => {
+          // console.log(value);
+          this.loader = false;
+          this.router.navigate(['']);
+        },
+        error => {
+          console.log(error);
+          this.errorMessage = error.error.error.message;
+          this.loader = false;
+        }
+      );
+    }
+    // console.log(authForm);
+    // console.log(authForm.value);
     authForm.reset();
   }
 
+  closeAlert(): void {
+    this.errorMessage = null;
+  }
 }

@@ -9,7 +9,8 @@ import { RecipeService } from './recipe.service';
   providedIn: 'root'
 })
 export class HttpService {
-  LINK = 'https://httpangmxshwud-default-rtdb.firebaseio.com/'; // starting point
+  // LINK = 'https://httpangmxshwud-default-rtdb.firebaseio.com/'; // starting point
+  LINK = 'https://recipe-hennadii-default-rtdb.firebaseio.com/';
   endpoint = 'posts.json';
 
   constructor(
