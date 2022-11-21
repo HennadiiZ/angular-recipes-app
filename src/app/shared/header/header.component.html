@@ -20,11 +20,12 @@
       <ul class="nav navbar-nav">
         <!-- <li (click)="onRecipe()" routerLinkActive="active"><a style="cursor: pointer;" Acti>Recipe</a></li>
         <li (click)="onShoppingList()" routerLinkActive="active"><a style="cursor: pointer;">Shopping List</a></li> -->
-        <li [routerLink]="'/recipes'" routerLinkActive="active"><a style="cursor: pointer;" Acti>Recipe</a></li>
-        <li [routerLink]="'/shopping-list'" routerLinkActive="active"><a style="cursor: pointer;">Shopping List</a></li>
-        <li [routerLink]="'/auth'" routerLinkActive="active"><a style="cursor: pointer;">Authenticate</a></li>
+        <li [routerLink]="'/recipes'" routerLinkActive="active" *ngIf="user"><a style="cursor: pointer;" Acti>Recipe</a></li>
+        <li [routerLink]="'/shopping-list'" routerLinkActive="active" *ngIf="user"><a style="cursor: pointer;">Shopping List</a></li>
+        <li [routerLink]="'/auth'" routerLinkActive="active"><a style="cursor: pointer;" *ngIf="!user">Authenticate</a></li>
+        <li [routerLink]="'/auth'" routerLinkActive="active"><a style="cursor: pointer;" *ngIf="user">Log out</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" *ngIf="user">
         <li class="dropdown" appDropdown>
           <a class="dropdown-toggle" role="button">Manage <span class="caret"></span> </a>
           <ul class="dropdown-menu">

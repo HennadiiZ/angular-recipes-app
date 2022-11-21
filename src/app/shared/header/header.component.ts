@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Recipe } from 'src/app/_models/recipe.model';
+import { User } from 'src/app/_models/user.model';
+import { AuthService } from 'src/app/_services/auth.service';
 import { HttpService } from 'src/app/_services/http.service';
 import { RecipeService } from 'src/app/_services/recipe.service';
 
@@ -12,14 +14,22 @@ import { RecipeService } from 'src/app/_services/recipe.service';
 export class HeaderComponent implements OnInit {
   // @Output() toggler = new EventEmitter();
   collapsed = false;
+  user = null;
 
   constructor(
     private router: Router,
     private httpService: HttpService,
+    private authService: AuthService
     // private recipeService: RecipeService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authService.userSubject.subscribe(((res: User) => {
+      console.log("12345678890-",this.user);
+      this.user = res;
+      console.log("-----=====-",this.user);
+    }))
+  }
 
   // onRecipe() {
   //   // this.toggler.emit(false);
