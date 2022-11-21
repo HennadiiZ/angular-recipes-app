@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Recipe } from 'src/app/_models/recipe.model';
 import { User } from 'src/app/_models/user.model';
 import { AuthService } from 'src/app/_services/auth.service';
@@ -11,10 +12,12 @@ import { RecipeService } from 'src/app/_services/recipe.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   // @Output() toggler = new EventEmitter();
+  subscriptions = new Subscription;
   collapsed = false;
-  user = null;
+  user = null; //
+  isAuthenticated = false;
 
   constructor(
     private router: Router,
@@ -24,11 +27,13 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authService.userSubject.subscribe(((res: User) => {
-      console.log("12345678890-",this.user);
-      this.user = res;
-      console.log("-----=====-",this.user);
-    }))
+    this.subscriptions.add(
+      this.authService.userSubject.subscribe(((user: User) => {
+        this.user = user;
+        // this.isAuthenticated = !user ? false : true;
+        this.isAuthenticated = !!user;
+      }))
+    )
   }
 
   // onRecipe() {
@@ -52,5 +57,9 @@ export class HeaderComponent implements OnInit {
 
   fetchData(): void {
     this.httpService.fetchRecipes().subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }

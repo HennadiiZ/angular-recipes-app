@@ -38,7 +38,7 @@ export class AuthComponent implements OnInit {
         (value: any) => {
           // console.log(value);
           this.loader = false;
-          this.router.navigate(['']);
+          this.router.navigate(['/recipes']);
         },
         error => {
           console.log(error.error.error.message);
@@ -52,7 +52,8 @@ export class AuthComponent implements OnInit {
         (value: any) => {
           // console.log(value);
           this.loader = false;
-          this.router.navigate(['']);
+          // this.router.navigate(['']);
+          this.router.navigate(['/recipes']);
         },
         error => {
           console.log(error);
