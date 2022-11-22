@@ -2,7 +2,7 @@ import { registerLocaleData } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { catchError, Observable, Subject, tap } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, Subject, tap } from 'rxjs';
 import { AuthResponseData } from '../_interfaces/auth-response-data.interface';
 import { User } from '../_models/user.model';
 
@@ -15,7 +15,9 @@ export class AuthService {
   SIGN_IN = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
   API_KEY = 'AIzaSyAuUHpZm38t_A7aM6xrBd5QUlWrUqF4IYM';
 
-  userSubject = new Subject<User>();
+  // userSubject = new Subject<User>();
+  userSubject = new BehaviorSubject<User>(null);
+  // token: string = null;
 
   constructor(private http: HttpClient) {}
 

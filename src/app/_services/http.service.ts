@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
+import { exhaustMap, map, Observable, take, tap } from 'rxjs';
 import { Ingredient } from '../_models/ingredient.model';
 import { Recipe } from '../_models/recipe.model';
+import { AuthService } from './auth.service';
 import { RecipeService } from './recipe.service';
 
 @Injectable({
@@ -15,7 +16,8 @@ export class HttpService {
 
   constructor(
     private http: HttpClient,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private authService: AuthService
   ) {}
 
   saveRecipes(): Observable<Recipe[]> {
@@ -27,17 +29,48 @@ export class HttpService {
   fetchRecipes(): Observable<Recipe[]> {
     // return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`);
 
-    return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`)
-    .pipe(
-      map((recipes)=> {
-        return recipes.map(recipe => {
-          return { ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []};
+
+    // this.authService.userSubject.pipe(take(1)).subscribe(user => {}) // pipe(take(1)) - take one time and unsubscribe
+
+    // token adds to HEADER but in firebase token adds to query params
+    return this.authService.userSubject
+      .pipe(
+        take(1),
+        exhaustMap((user) => {
+          // return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`)
+          return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}?auth=` + user.token) // 1st way to add
+
+          // return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`), // 2nd way to add
+          // {
+          //   params: new HttpParams().set('auth', user.token)
+          // }
+        }),
+        map((recipes)=> {
+          return recipes.map(recipe => {
+            return { ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []};
+          })
+        }),
+        tap((recipes)=> {
+          this.recipeService.setRecipes(recipes);
         })
-      }),
-      tap((recipes)=> {
-        this.recipeService.setRecipes(recipes);
-      })
-    )
+
+      )
+
+
+
+
+
+    // return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`)
+    // .pipe(
+    //   map((recipes)=> {
+    //     return recipes.map(recipe => {
+    //       return { ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []};
+    //     })
+    //   }),
+    //   tap((recipes)=> {
+    //     this.recipeService.setRecipes(recipes);
+    //   })
+    // )
     // .subscribe((recipes) => {
     //   // this.recipeService.setRecipes(recipes);
     // });
