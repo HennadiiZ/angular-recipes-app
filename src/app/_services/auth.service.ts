@@ -1,7 +1,9 @@
 import { registerLocaleData } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, Observable, Subject, tap } from 'rxjs';
 import { AuthResponseData } from '../_interfaces/auth-response-data.interface';
 import { User } from '../_models/user.model';
@@ -13,13 +15,17 @@ export class AuthService {
 
   SIGN_UP = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=';
   SIGN_IN = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
+  SIGN_OFF = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
   API_KEY = 'AIzaSyAuUHpZm38t_A7aM6xrBd5QUlWrUqF4IYM';
 
   // userSubject = new Subject<User>();
   userSubject = new BehaviorSubject<User>(null);
   // token: string = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   signUp(email: string, password: string): Observable<AuthResponseData> {
     return this.http.post<AuthResponseData>(
@@ -66,5 +72,10 @@ export class AuthService {
         )
       })
     );
+  }
+
+  logOut(): void {
+    this.userSubject.next(null);
+    this.router.navigate(['/auth']);
   }
 }

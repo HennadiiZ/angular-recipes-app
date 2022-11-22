@@ -27,7 +27,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
 
-        <li [routerLink]="'/auth'" routerLinkActive="active">
+        <li [routerLink]="'/auth'" routerLinkActive="active" (click)="logOut()">
           <a style="cursor: pointer;" *ngIf="isAuthenticated">Log out</a>
         </li>
 

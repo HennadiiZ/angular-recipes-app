@@ -48,6 +48,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   saveData(): void {
     // const recipes = this.recipeService.getRecipes();
+    this.subscriptions.add();
+
     this.httpService.saveRecipes().subscribe(
       ((data: Recipe[])=> {
         console.log(data);
@@ -56,7 +58,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   fetchData(): void {
+    this.subscriptions.add();
     this.httpService.fetchRecipes().subscribe();
+  }
+
+  logOut(): void {
+    // this.subscriptions.add();
+    this.authService.logOut();
   }
 
   ngOnDestroy(): void {
