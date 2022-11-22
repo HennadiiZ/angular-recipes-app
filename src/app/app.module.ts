@@ -14,9 +14,10 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { DropdownDirective } from './_directives/dropdown.directive';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthComponent } from './auth/auth/auth.component';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { AuthInterceptorService } from './_services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { LoaderComponent } from './shared/loader/loader.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
@@ -211,3 +212,5 @@ export class AppModule { }
 // 300. Reflecting the Auth State in the UI
 
 // 301. Adding the Token to Outgoing Requests
+
+// 302. Attaching the Token with an Interceptor

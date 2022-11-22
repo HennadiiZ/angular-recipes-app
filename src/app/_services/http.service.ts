@@ -33,18 +33,10 @@ export class HttpService {
     // this.authService.userSubject.pipe(take(1)).subscribe(user => {}) // pipe(take(1)) - take one time and unsubscribe
 
     // token adds to HEADER but in firebase token adds to query params
-    return this.authService.userSubject
-      .pipe(
-        take(1),
-        exhaustMap((user) => {
-          // return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`)
-          return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}?auth=` + user.token) // 1st way to add
 
-          // return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`), // 2nd way to add
-          // {
-          //   params: new HttpParams().set('auth', user.token)
-          // }
-        }),
+    // return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`)
+    return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`)
+      .pipe(
         map((recipes)=> {
           return recipes.map(recipe => {
             return { ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []};
@@ -53,12 +45,12 @@ export class HttpService {
         tap((recipes)=> {
           this.recipeService.setRecipes(recipes);
         })
-
       )
 
-
-
-
+      // return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`), // 2nd way to add
+      // {
+      //   params: new HttpParams().set('auth', user.token)
+      // }
 
     // return this.http.get<Recipe[]>(`${this.LINK}${this.endpoint}`)
     // .pipe(
