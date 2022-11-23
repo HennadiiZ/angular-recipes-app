@@ -47,17 +47,6 @@ export class AuthService {
     );
   }
 
-  private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
-    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
-    const user = new User(
-      email,
-      userId,
-      token,
-      expirationDate
-    );
-    this.userSubject.next(user);
-  }
-
   signIn(email: string, password: string): Observable<AuthResponseData> {
     return this.http.post<AuthResponseData>(
       `${this.SIGN_IN}${this.API_KEY}`,
@@ -74,8 +63,45 @@ export class AuthService {
     );
   }
 
+  autoLogin(): void {
+    const userData: {
+      email: string,
+      id: string,
+       _token: string,
+       _tokenExpirationDate: Date
+    } = JSON.parse(localStorage.getItem('userData'));
+
+    if(!userData) {
+      return;
+    }
+
+    const loadedUser = new User(
+      userData.email,
+      userData.id,
+      userData._token,
+      new Date(userData._tokenExpirationDate)
+    );
+
+    if(loadedUser.token) {
+      this.userSubject.next(loadedUser);
+    }
+  }
+
   logOut(): void {
     this.userSubject.next(null);
     this.router.navigate(['/auth']);
+    localStorage.removeItem('userData');
+  }
+
+  private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
+    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+    const user = new User(
+      email,
+      userId,
+      token,
+      expirationDate
+    );
+    this.userSubject.next(user);
+    localStorage.setItem('userData', JSON.stringify(user));
   }
 }
