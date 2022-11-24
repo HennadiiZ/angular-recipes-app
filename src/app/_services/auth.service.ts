@@ -104,7 +104,8 @@ export class AuthService {
     console.log(expirationDuration);
     this.tokenExpirationTimer = setTimeout(() => {
       this.logOut();
-    }, expirationDuration);
+    // }, expirationDuration);
+  }, 50000); //---------------- expirationDuration is not working !!!
   }
 
   private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {

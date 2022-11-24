@@ -220,3 +220,5 @@ export class AppModule { }
 // 304. Adding Auto-Login
 
 // 305. Adding Auto-Logout
+
+// 306. Adding an Auth Guard
