@@ -101,15 +101,16 @@ export class AuthService {
   }
 
   autoLogOut(expirationDuration: number): void {
-    console.log(expirationDuration);
+    console.log('expirationDuration', expirationDuration);
     this.tokenExpirationTimer = setTimeout(() => {
       this.logOut();
-    // }, expirationDuration);
-  }, 50000); //---------------- expirationDuration is not working !!!
+    }, expirationDuration);
+    // }, 50000); //---------------- expirationDuration is not working !!!
   }
 
   private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
-    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+    const expirationDate = new Date(new Date().getTime() + +expiresIn * 1000);
+    console.log('expirationDate', expirationDate);
     const user = new User(
       email,
       userId,
