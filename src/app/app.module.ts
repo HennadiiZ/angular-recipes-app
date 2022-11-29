@@ -18,6 +18,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthComponent } from './auth/auth/auth.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { AuthInterceptorService } from './_services/auth-interceptor.service';
+import { AlertComponent } from './shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthInterceptorService } from './_services/auth-interceptor.service';
     RecipeStartComponent,
     RecipeEditComponent,
     AuthComponent,
-    LoaderComponent
+    LoaderComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -222,3 +224,7 @@ export class AppModule { }
 // 305. Adding Auto-Logout
 
 // 306. Adding an Auth Guard
+
+// 310. Adding an Alert Modal Component
+// 311. Understanding the Different Approaches
+// 312. Using ngIf

@@ -49,7 +49,7 @@
       </div>
     </form>
 
-    <div
+    <!-- <div
       *ngIf="errorMessage"
       class="alert alert-danger"
       (click)="closeAlert()"
@@ -57,10 +57,21 @@
     >
       <p>{{ errorMessage }}</p>
       <div>X</div>
-    </div>
+    </div> -->
+
+
+      <app-alert
+        *ngIf="errorMessage"
+        [message]="errorMessage"
+        (close)="onHandleError()"
+      ></app-alert>
+
+
 
     <div class="col-xs-12 col-md-6 col-md-offset-5" *ngIf="loader" style="margin-top: 20px;">
       <app-loader></app-loader>
     </div>
+
+
   </div>
 </div>
