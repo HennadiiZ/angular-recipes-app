@@ -1,8 +1,10 @@
-import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertComponent } from 'src/app/shared/alert/alert.component';
 import { AuthService } from 'src/app/_services/auth.service';
+import { PlaceholderDirective } from 'src/app/_directives/placeholder.directive'
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-auth',
@@ -13,6 +15,7 @@ export class AuthComponent implements OnInit {
   isLoginMode = true;
   loader = false;
   errorMessage: string = null;
+  @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
 
   constructor(
     private authService: AuthService,
@@ -79,8 +82,19 @@ export class AuthComponent implements OnInit {
     this.errorMessage = null;
   }
 
-  private showErrorAlert(error: string): void {
+  private showErrorAlert(message: string): void {
     // const alertComponent = new AlertComponent();
     const alertComponentFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
+    const hostViewContainerRef = this.alertHost.viewContainerRef;
+    hostViewContainerRef.clear();
+
+    const componentRef = hostViewContainerRef.createComponent(alertComponentFactory);
+
+    componentRef.instance.message = message;
+    componentRef.instance.close.pipe(
+      // take(1)
+    ).subscribe(() => {
+      hostViewContainerRef.clear();
+    })
   }
 }

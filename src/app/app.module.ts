@@ -47,7 +47,10 @@ import { PlaceholderDirective } from './_directives/placeholder.directive';
     HttpClientModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AlertComponent
+  ]
 })
 export class AppModule { }
 
@@ -232,3 +235,7 @@ export class AppModule { }
 // 312. Using ngIf
 
 // 313. Preparing Programmatic Creation
+
+// 314. Creating a Component Programmatically
+// 315. Understanding entryComponents
+// 316. Data Binding & Event Binding
