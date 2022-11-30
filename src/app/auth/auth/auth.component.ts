@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertComponent } from 'src/app/shared/alert/alert.component';
 import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private componentFactoryResolver: ComponentFactoryResolver
   ) {}
 
   ngOnInit(): void {}
@@ -41,6 +43,7 @@ export class AuthComponent implements OnInit {
           this.router.navigate(['/recipes']);
         },
         error => {
+          this.showErrorAlert(error.error.error.message);
           console.log(error.error.error.message);
           this.errorMessage = error.error.error.message;
           this.loader = false;
@@ -56,6 +59,7 @@ export class AuthComponent implements OnInit {
           this.router.navigate(['/recipes']);
         },
         error => {
+          this.showErrorAlert(error.error.error.message);
           console.log(error);
           this.errorMessage = error.error.error.message;
           this.loader = false;
@@ -70,8 +74,13 @@ export class AuthComponent implements OnInit {
   // closeAlert(): void {
   //   this.errorMessage = null;
   // }
-  
+
   onHandleError(): void {
     this.errorMessage = null;
+  }
+
+  private showErrorAlert(error: string): void {
+    // const alertComponent = new AlertComponent();
+    const alertComponentFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
   }
 }
