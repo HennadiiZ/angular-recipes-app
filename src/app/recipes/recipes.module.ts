@@ -32,15 +32,15 @@ import { RecipesComponent } from "./recipes.component";
     // HttpClientModule,
     SharedModule
   ],
-  exports: [
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
-    RecipeStartComponent,
-    RecipeEditComponent,
-    RecipesRoutingModule
-  ]
+  // exports: [
+  //   RecipesComponent,
+  //   RecipeListComponent,
+  //   RecipeDetailComponent,
+  //   RecipeItemComponent,
+  //   RecipeStartComponent,
+  //   RecipeEditComponent,
+  //   RecipesRoutingModule
+  // ]
 })
 
 export class RecipesModule {}

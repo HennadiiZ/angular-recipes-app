@@ -260,3 +260,5 @@ export class AppModule {}
 // 323. Splitting Modules Correctly
 
 // 324. Adding Routes to Feature Modules
+
+// 325. Component Declarations
