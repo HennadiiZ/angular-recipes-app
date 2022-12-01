@@ -30,7 +30,8 @@ import { RecipesComponent } from "./recipes.component";
     // FormsModule,
     // ReactiveFormsModule,
     // HttpClientModule,
-    SharedModule
+    SharedModule,
+    RecipesRoutingModule
   ],
   // exports: [
   //   RecipesComponent,

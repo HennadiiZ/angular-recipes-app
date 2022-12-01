@@ -25,7 +25,7 @@ const routes: Routes = [
   //     { path: ':id/edit', component: RecipeEditComponent, resolve: [RecipesResolverService] },
   //   ]
   // },
-  { path: 'shopping-list', component: ShoppingListComponent, children: []}
+  // { path: 'shopping-list', component: ShoppingListComponent, children: []}
 ];
 
 @NgModule({

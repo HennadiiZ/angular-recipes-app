@@ -16,8 +16,8 @@ import { HeaderComponent } from './shared/header/header.component';
 // import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 // import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+// import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+// import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 
 import { AuthComponent } from './auth/auth/auth.component';
 
@@ -30,6 +30,7 @@ import { DropdownDirective } from './_directives/dropdown.directive';
 import { AuthInterceptorService } from './_services/auth-interceptor.service';
 import { RecipesModule } from './recipes/recipes.module';
 import { SharedModule } from './_modules/shared.module';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
 
 @NgModule({
   declarations: [
@@ -43,8 +44,8 @@ import { SharedModule } from './_modules/shared.module';
     // RecipeStartComponent,
     // RecipeEditComponent,
 
-    ShoppingListComponent,
-    ShoppingEditComponent,
+    // ShoppingListComponent,
+    // ShoppingEditComponent,
 
     AuthComponent,
     LoaderComponent,
@@ -59,7 +60,8 @@ import { SharedModule } from './_modules/shared.module';
     // ReactiveFormsModule,
     // HttpClientModule,
     SharedModule,
-    RecipesModule
+    RecipesModule,
+    ShoppingListModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent],
@@ -262,3 +264,5 @@ export class AppModule {}
 // 324. Adding Routes to Feature Modules
 
 // 325. Component Declarations
+
+// 326. The ShoppingList Feature Module
