@@ -7,6 +7,7 @@ import { AppRoutingModule } from "../_modules/app-routing.module";
 
 @NgModule({
   imports: [
+    // RouterModule.forChild(),
     RouterModule,
     BrowserModule,
     AppRoutingModule,
