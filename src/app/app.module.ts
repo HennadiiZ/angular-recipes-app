@@ -3,31 +3,27 @@
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { NgModule } from '@angular/core';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/header/header.component';
-
 // import { RecipesComponent } from './recipes/recipes.component';
 // import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 // import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 // import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 // import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 // import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-
 // import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 // import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+// import { LoaderComponent } from './shared/loader/loader.component';
+// import { PlaceholderDirective } from './_directives/placeholder.directive';
+// import { DropdownDirective } from './_directives/dropdown.directive';
 
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './shared/header/header.component';
 import { AuthComponent } from './auth/auth/auth.component';
-
-import { LoaderComponent } from './shared/loader/loader.component';
 import { AlertComponent } from './shared/alert/alert.component';
 
-import { PlaceholderDirective } from './_directives/placeholder.directive';
-import { DropdownDirective } from './_directives/dropdown.directive';
-
 import { AuthInterceptorService } from './_services/auth-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RecipesModule } from './recipes/recipes.module';
 import { SharedModule } from './_modules/shared.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
@@ -36,6 +32,7 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
   declarations: [
     AppComponent,
     HeaderComponent,
+    AuthComponent
 
     // RecipesComponent,
     // RecipeListComponent,
@@ -43,15 +40,12 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
     // RecipeItemComponent,
     // RecipeStartComponent,
     // RecipeEditComponent,
-
     // ShoppingListComponent,
     // ShoppingEditComponent,
-
-    AuthComponent,
-    LoaderComponent,
-    AlertComponent,
-    DropdownDirective,
-    PlaceholderDirective
+    // LoaderComponent,
+    // AlertComponent,
+    // DropdownDirective,
+    // PlaceholderDirective,
   ],
   imports: [
     // BrowserModule,
@@ -266,3 +260,5 @@ export class AppModule {}
 // 325. Component Declarations
 
 // 326. The ShoppingList Feature Module
+
+// 327. Understanding Shared Modules
