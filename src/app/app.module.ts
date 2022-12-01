@@ -12,28 +12,30 @@
 // import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 // import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 // import { LoaderComponent } from './shared/loader/loader.component';
+// import { AuthComponent } from './auth/auth/auth.component';
 // import { PlaceholderDirective } from './_directives/placeholder.directive';
 // import { DropdownDirective } from './_directives/dropdown.directive';
 
 import { NgModule } from '@angular/core';
+import { RecipesModule } from './recipes/recipes.module';
+import { SharedModule } from './_modules/shared.module';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { AuthModule } from './auth/auth.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { AuthComponent } from './auth/auth/auth.component';
 import { AlertComponent } from './shared/alert/alert.component';
 
 import { AuthInterceptorService } from './_services/auth-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RecipesModule } from './recipes/recipes.module';
-import { SharedModule } from './_modules/shared.module';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AuthComponent
 
+    // AuthComponent
     // RecipesComponent,
     // RecipeListComponent,
     // RecipeDetailComponent,
@@ -55,9 +57,12 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
     // HttpClientModule,
     SharedModule,
     RecipesModule,
-    ShoppingListModule
+    ShoppingListModule,
+    AuthModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     AlertComponent
@@ -262,3 +267,6 @@ export class AppModule {}
 // 326. The ShoppingList Feature Module
 
 // 327. Understanding Shared Modules
+
+// 328. Understanding the Core Module
+// 329. Adding an Auth Feature Module

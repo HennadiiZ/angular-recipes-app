@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthComponent } from '../auth/auth/auth.component';
-import { ShoppingListComponent } from '../shopping-list/shopping-list.component';
 
+// import { AuthComponent } from '../auth/auth/auth.component';
+// import { ShoppingListComponent } from '../shopping-list/shopping-list.component';
 // import { AuthGuard } from '../auth/auth.guard';
 // import { RecipeDetailComponent } from '../recipes/recipe-detail/recipe-detail.component';
 // import { RecipeEditComponent } from '../recipes/recipe-edit/recipe-edit.component';
@@ -14,8 +14,8 @@ import { ShoppingListComponent } from '../shopping-list/shopping-list.component'
 // import { RecipesResolverService } from '../_services/recipes-resolver.service';
 
 const routes: Routes = [
-  { path: 'auth', component: AuthComponent },
-  // { path: '', redirectTo: '/recipes', pathMatch: 'full'},
+  // { path: 'auth', component: AuthComponent },
+  { path: '', redirectTo: '/recipes', pathMatch: 'full'},
   // { path: 'recipes', component: RecipesComponent,
   //   canActivate: [AuthGuard],
   //   children: [
