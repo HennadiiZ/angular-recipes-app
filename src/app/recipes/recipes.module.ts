@@ -1,9 +1,10 @@
-import { HttpClientModule } from "@angular/common/http";
+// import { HttpClientModule } from "@angular/common/http";
+// import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+// import { BrowserModule } from "@angular/platform-browser";
+// import { RouterModule } from "@angular/router";
+// import { AppRoutingModule } from "../_modules/app-routing.module";
 import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
-import { RouterModule } from "@angular/router";
-import { AppRoutingModule } from "../app-routing.module";
+import { SharedModule } from "../_modules/shared.module";
 
 import { RecipeDetailComponent } from "./recipe-detail/recipe-detail.component";
 import { RecipeEditComponent } from "./recipe-edit/recipe-edit.component";
@@ -22,12 +23,13 @@ import { RecipesComponent } from "./recipes.component";
     RecipeEditComponent,
   ],
   imports: [
-    RouterModule,
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
+    // RouterModule,
+    // BrowserModule,
+    // AppRoutingModule,
+    // FormsModule,
+    // ReactiveFormsModule,
+    // HttpClientModule,
+    SharedModule
   ],
   exports: [
     RecipesComponent,

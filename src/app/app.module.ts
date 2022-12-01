@@ -1,8 +1,10 @@
+// import { BrowserModule } from '@angular/platform-browser';
+// import { AppRoutingModule } from './_modules/app-routing.module';
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -27,6 +29,7 @@ import { DropdownDirective } from './_directives/dropdown.directive';
 
 import { AuthInterceptorService } from './_services/auth-interceptor.service';
 import { RecipesModule } from './recipes/recipes.module';
+import { SharedModule } from './_modules/shared.module';
 
 @NgModule({
   declarations: [
@@ -50,11 +53,12 @@ import { RecipesModule } from './recipes/recipes.module';
     PlaceholderDirective
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
+    // BrowserModule,
+    // AppRoutingModule,
+    // FormsModule,
+    // ReactiveFormsModule,
+    // HttpClientModule,
+    SharedModule,
     RecipesModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
