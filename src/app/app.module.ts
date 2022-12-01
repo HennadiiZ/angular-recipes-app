@@ -2,41 +2,51 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+
+// import { RecipesComponent } from './recipes/recipes.component';
+// import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
+// import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+// import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+// import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+// import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { DropdownDirective } from './_directives/dropdown.directive';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { AuthComponent } from './auth/auth/auth.component';
+
 import { LoaderComponent } from './shared/loader/loader.component';
-import { AuthInterceptorService } from './_services/auth-interceptor.service';
 import { AlertComponent } from './shared/alert/alert.component';
+
 import { PlaceholderDirective } from './_directives/placeholder.directive';
+import { DropdownDirective } from './_directives/dropdown.directive';
+
+import { AuthInterceptorService } from './_services/auth-interceptor.service';
+import { RecipesModule } from './recipes/recipes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
+
+    // RecipesComponent,
+    // RecipeListComponent,
+    // RecipeDetailComponent,
+    // RecipeItemComponent,
+    // RecipeStartComponent,
+    // RecipeEditComponent,
+
     ShoppingListComponent,
     ShoppingEditComponent,
-    DropdownDirective,
-    RecipeStartComponent,
-    RecipeEditComponent,
+
     AuthComponent,
     LoaderComponent,
     AlertComponent,
+    DropdownDirective,
     PlaceholderDirective
   ],
   imports: [
@@ -44,7 +54,8 @@ import { PlaceholderDirective } from './_directives/placeholder.directive';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RecipesModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent],
@@ -52,7 +63,7 @@ import { PlaceholderDirective } from './_directives/placeholder.directive';
     AlertComponent
   ]
 })
-export class AppModule { }
+export class AppModule {}
 
 
 // Creating a New App Correctly
@@ -239,3 +250,7 @@ export class AppModule { }
 // 314. Creating a Component Programmatically
 // 315. Understanding entryComponents
 // 316. Data Binding & Event Binding
+
+// 321. Analyzing the AppModule
+// 322. Getting Started with Feature Modules
+// 323. Splitting Modules Correctly
