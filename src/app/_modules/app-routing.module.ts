@@ -16,6 +16,21 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   // { path: 'auth', component: AuthComponent },
   { path: '', redirectTo: '/recipes', pathMatch: 'full'},
+
+  // {
+  //   path: 'recipes',
+  //   loadChildren: () => import('../recipes/recipes.module').then(m => m.RecipesModule)
+  //   // loadChildren: '../recipes/recipes.module#RecipesModule'
+  // },
+  // {
+  //   path: 'shopping-list',
+  //   loadChildren: () => import('../shopping-list/shopping-list.module').then(m => m.ShoppingListModule)
+  // },
+  // {
+  //   path: 'auth',
+  //   loadChildren: () => import('../auth/auth-routing.module').then(m => m.AuthRoutingModule)
+  // }
+
   // { path: 'recipes', component: RecipesComponent,
   //   canActivate: [AuthGuard],
   //   children: [

@@ -16,18 +16,19 @@
 // import { PlaceholderDirective } from './_directives/placeholder.directive';
 // import { DropdownDirective } from './_directives/dropdown.directive';
 
-import { NgModule } from '@angular/core';
 import { RecipesModule } from './recipes/recipes.module';
-import { SharedModule } from './_modules/shared.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
 
+import { NgModule } from '@angular/core';
+import { SharedModule } from './_modules/shared.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { AlertComponent } from './shared/alert/alert.component';
 
 import { AuthInterceptorService } from './_services/auth-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -55,10 +56,14 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     // FormsModule,
     // ReactiveFormsModule,
     // HttpClientModule,
-    SharedModule,
+
+
     RecipesModule,
     ShoppingListModule,
-    AuthModule
+    AuthModule,
+
+
+    SharedModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
@@ -270,3 +275,7 @@ export class AppModule {}
 
 // 328. Understanding the Core Module
 // 329. Adding an Auth Feature Module
+
+// 330. Understanding Lazy Loading
+// 331. Implementing Lazy Loading
+// 332. More Lazy Loading

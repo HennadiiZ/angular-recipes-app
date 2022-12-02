@@ -8,7 +8,10 @@ import { RecipesComponent } from '../recipes/recipes.component';
 import { RecipesResolverService } from '../_services/recipes-resolver.service';
 
 const routes: Routes = [
-  { path: 'recipes', component: RecipesComponent,
+  {
+    path: 'recipes',
+    // path: '',
+    component: RecipesComponent,
     canActivate: [AuthGuard],
     children: [
       { path: '', component: RecipeStartComponent },
