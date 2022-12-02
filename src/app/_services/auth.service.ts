@@ -8,6 +8,8 @@ import { BehaviorSubject, catchError, Observable, Subject, tap } from 'rxjs';
 import { AuthResponseData } from '../_interfaces/auth-response-data.interface';
 import { User } from '../_models/user.model';
 
+import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +18,8 @@ export class AuthService {
   SIGN_UP = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=';
   SIGN_IN = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
   SIGN_OFF = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
-  API_KEY = 'AIzaSyAuUHpZm38t_A7aM6xrBd5QUlWrUqF4IYM';
+  // API_KEY = 'AIzaSyAuUHpZm38t_A7aM6xrBd5QUlWrUqF4IYM';
+  API_KEY = environment.firebaseApiKey;
 
   // userSubject = new Subject<User>();
   userSubject = new BehaviorSubject<User>(null);
