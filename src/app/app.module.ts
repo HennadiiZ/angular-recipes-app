@@ -62,7 +62,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     ShoppingListModule,
     AuthModule,
 
-
     SharedModule,
   ],
   providers: [
@@ -282,3 +281,16 @@ export class AppModule {}
 
 // 339. Using Environment Variables
 
+//--------------------------------------------------
+// 340. Deploying Angular Applications
+    // ng build
+    // ng build --prod
+    // I tried - npm audit fix (or) npm audit fix --force
+
+
+// ✔  Created service account github-action-554767391 with Firebase Hosting admin permissions.
+// ✔  Uploaded service account JSON to GitHub as secret FIREBASE_SERVICE_ACCOUNT_RECIPE_HENNADII.
+// i  You can manage your secrets at https://github.com/HennadiiZ/angularUdMaxShwRecipe/settings/secrets.
+
+// Project Console: https://console.firebase.google.com/project/recipe-hennadii/overview
+// Hosting URL: https://recipe-hennadii.web.app
